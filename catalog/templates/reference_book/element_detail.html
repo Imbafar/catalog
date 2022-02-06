@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Справочник {{ reference_book.name }}
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="row">
+    <article class="col-12 col-md-9">
+      <p>
+        родительский идентификатор : {{ element.parent_id }} <br>
+        код элемента : {{ element.code }} <br>
+        значение элемента : {{ element.val }} <br>
+      </p>
+      <a class="btn btn-primary"  href="{% url 'reference_book:element_edit' element.id %}">редактировать запись</a>
+
+
+    </article>
+  </div>
+</div>
+
+{% endblock %}

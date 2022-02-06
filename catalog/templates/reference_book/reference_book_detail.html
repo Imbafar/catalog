@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Справочник {{ reference_book.name }}
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="row">
+    <article class="col-12 col-md-9">
+      <p>
+        идентификатор справочника : {{ reference_book.id }} <br>
+        наименование : {{ reference_book.name }} <br>
+        короткое наименование : {{ reference_book.short_name }} <br>
+        описание : {{ reference_book.description }} <br>
+        версия : {{ reference_book.ver }} <br>
+        дата начала действия справочника : {{ reference_book.date_begin }} <br>
+        <a class="btn btn-primary"  href="{% url 'reference_book:reference_book_edit' reference_book.id %}">редактировать запись</a>
+        <br>
+        Элементы справочника:
+      </p>
+    <hr>
+
+    {% for element in page_obj %}
+    <div class="media mb-4">
+      <div class="media-body">
+        <h5 class="mt-0">
+          {% comment %} <a href="{% url 'posts:profile' comment.author.username %}">
+            {{ comment.author.username }}
+          </a> {% endcomment %}
+        </h5>
+          <p>
+            Код элемента : {{ element.code }} <br>
+            Значение элемента : {{ element.val }} <br>
+            <a href="{% url 'reference_book:element_detail' element.id %}">Подробная информация</a> <br>
+            {% if not forloop.last %}
+            <hr>
+            {% endif %}
+          </p>
+        </div>
+      </div>
+  {% endfor %}
+
+    </article>
+  </div>
+  {% include 'includes/paginator.html' %}
+</div>
+
+{% endblock %}
