@@ -8,10 +8,7 @@
 {% endblock %}
 
 {% block content %}
-{% comment %} {% load user_filters %} {% endcomment %}
 <div class="container py-5">
-
-  {% comment %} <div class="col-md-8 p-5"> {% endcomment %}
     <div class="card">
       <div class="card-header">
       {% if is_edit %}
@@ -55,7 +52,6 @@
               {% endif %}
             </label>
             <div>
-              {% comment %} {{ field|addclass:'form-control' }} {% endcomment %}
               {{ field }}
 
               {% if field.help_text %}
@@ -66,7 +62,6 @@
             </div>
           </div>
           {% endfor %}
-          {% comment %} <div class="col-md-12 offset-md-10"> {% endcomment %}
             <button type="submit" class="btn btn-primary">
               {% if is_edit %}
               Сохранить
@@ -74,12 +69,10 @@
               Добавить
               {% endif %}
             </button>
-          {% comment %} </div> {% endcomment %}
         </form>
-      </div> <!-- card body -->
-    </div> <!-- card -->
-  {% comment %} </div> <!-- col --> {% endcomment %}
-</div> <!-- row -->
+      </div> 
+    </div> 
+</div> 
 
 
 {% endblock %}

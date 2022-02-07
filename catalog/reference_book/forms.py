@@ -36,7 +36,7 @@ class ElementForm(forms.ModelForm):
         fields = (
             "parent_id",
             "code",
-            "val"
+            "val",
         )
         labels = {
             "parent_id": "родительский идентификатор",
@@ -49,4 +49,3 @@ class ElementForm(forms.ModelForm):
             "val": "Введите значение элемента",
         }
         verbose_name = "Форма элемента'"
-        

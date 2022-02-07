@@ -37,9 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'drf_yasg',
+    'rest_framework',
     'reference_book.apps.ReferenceBookConfig',
     'about.apps.AboutConfig',
-    
+    'api.apps.ApiConfig',
 ]
 
 MIDDLEWARE = [
@@ -126,3 +128,8 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_URL = '/static/'
 
 POSTS_FOR_PAGE = 10
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': POSTS_FOR_PAGE,
+}

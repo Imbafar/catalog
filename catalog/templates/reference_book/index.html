@@ -7,9 +7,9 @@
 {% block content %}
 <div class="container py-5">
 
-    {% for r_book in page_obj %}
-    <p>{{ r_book.name|linebreaksbr }} </p>
-    <a href="{% url 'reference_book:reference_book_detail' r_book.id %}">Подробная информация</a> <br>
+    {% for reference_book in page_obj %}
+    <p> Наименование справочника: {{ reference_book.name}} </p>
+    <a href="{% url 'reference_book:reference_book_detail' reference_book.id %}">Подробная информация</a> <br>
 
     {% if not forloop.last %}
     <hr>

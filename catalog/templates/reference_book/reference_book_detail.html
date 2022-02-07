@@ -24,11 +24,6 @@
     {% for element in page_obj %}
     <div class="media mb-4">
       <div class="media-body">
-        <h5 class="mt-0">
-          {% comment %} <a href="{% url 'posts:profile' comment.author.username %}">
-            {{ comment.author.username }}
-          </a> {% endcomment %}
-        </h5>
           <p>
             Код элемента : {{ element.code }} <br>
             Значение элемента : {{ element.val }} <br>

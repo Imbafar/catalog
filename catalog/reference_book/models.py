@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class RBook(models.Model):
     name = models.CharField(
         max_length=200,
@@ -23,7 +24,10 @@ class RBook(models.Model):
     class Meta:
         verbose_name = "Справочник"
         verbose_name_plural = "Справочники"
-        unique_together = ('name', 'ver',)
+        unique_together = (
+            "name",
+            "ver",
+        )
 
     def __str__(self):
         return self.name
@@ -34,7 +38,7 @@ class Element(models.Model):
         RBook,
         on_delete=models.SET_NULL,
         null=True,
-        related_name='elements',
+        related_name="elements",
         verbose_name="родительский идентификатор",
     )
     code = models.CharField(
